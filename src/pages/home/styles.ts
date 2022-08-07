@@ -5,3 +5,9 @@ export const Container = styled.div`
         width: 100vw;
     }
 `
+
+export const CardArea = styled.main`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`

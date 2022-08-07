@@ -1,8 +1,8 @@
-import { Button, Typography } from "@mui/material"
-import { useContext, useEffect } from "react"
-import { Header } from "../../components/Header"
-import { AppContext } from "../../context/app"
-import { Container } from "./styles"
+import { useContext, useEffect } from 'react'
+import { FruitCard } from '../../components/FruitCard'
+import { Header } from '../../components/Header'
+import { AppContext } from '../../context/app'
+import { CardArea, Container } from './styles'
 
 export const Home = () => {
     const { getAllFruits, list} = useContext(AppContext)
@@ -15,9 +15,11 @@ export const Home = () => {
         <Container>
             <Header />
 
-            {list.map(item => (
-                <Typography key={item.name}>{item?.name}</Typography>
-            ))}
+            <CardArea>
+                {list.map(item => (
+                    <FruitCard key={item.id} title={item.name} />
+                ))}
+            </CardArea>
             
         </Container>
     )

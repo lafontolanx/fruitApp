@@ -8,6 +8,7 @@ interface AppContextProps {
 
 interface FruitsProps {
     name: string
+    id: number
 }
 
 interface ReactElement {

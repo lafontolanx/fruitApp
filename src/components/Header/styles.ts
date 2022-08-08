@@ -3,6 +3,12 @@ import { IconButton, TextField } from '@mui/material'
 import { SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material'
 
 export const HeaderComponent = styled.header`
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 1;
+
     padding: 1rem 2.5rem;
     background: var(--white);
 

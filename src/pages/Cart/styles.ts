@@ -7,7 +7,15 @@ export const Container = styled.div`
         text-align: center;
         color: var(--gray-50);
         font-family: 'Poppins', sans-serif;
+
+        margin-top: 7rem;
     }
+`
+export const Title = styled.h1`
+    margin-top: 8rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
 `
 
 export const Content = styled.div`

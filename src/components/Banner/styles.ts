@@ -9,7 +9,7 @@ export const Container = styled.div`
 
     background-color: var(--orange);
     padding: 1rem;
-    margin: 2rem 0;
+    margin: 7rem 0 2rem 0;
 
     box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { CartCard } from "../../components/CartCard"
 import { Header } from "../../components/Header"
 import { AppContext } from "../../context/app"
-import { ButtonArea, Container, Content } from "./styles"
+import { ButtonArea, Container, Content, Title } from "./styles"
 
 export const Cart = () => {
     const { cart, clearCart } = useContext(AppContext)
@@ -17,6 +17,10 @@ export const Cart = () => {
         <Container>
             <Header setSearch={() => {}}/>
 
+            {cart.length > 0 && (
+                <Title>My shopping cart:</Title>
+            )} 
+            
             {cart.map(item => (
                 <CartCard 
                     key={item.id} 

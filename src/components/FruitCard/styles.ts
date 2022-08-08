@@ -12,6 +12,7 @@ export const Container = styled.div`
     padding: 2rem .8rem;
     align-items: center;
     justify-content: space-between;
+    background: var(--white);
 
     border-radius: 15px;
 

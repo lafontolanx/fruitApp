@@ -1,11 +1,20 @@
 import { Button, Typography } from '@mui/material'
+import { useContext } from 'react'
+import { AppContext } from '../../context/app'
 import { CartIcon, Container, Title } from './styles'
 
 interface FruitCardProps {
     title: string
+    id: number
 }
 
-export const FruitCard = ({ title }: FruitCardProps) => {
+export const FruitCard = ({ title, id }: FruitCardProps) => {
+    const { addToCart } = useContext(AppContext)
+
+    const handleAddToCart = () => {
+        addToCart(id, title)
+    }
+
     return (
         <Container>
             <img 
@@ -19,6 +28,7 @@ export const FruitCard = ({ title }: FruitCardProps) => {
                 color='success' 
                 variant='contained'
                 endIcon={<CartIcon/>}
+                onClick={handleAddToCart}
             >
                 <Typography color={'#fff'}>Add to cart</Typography>
             </Button>

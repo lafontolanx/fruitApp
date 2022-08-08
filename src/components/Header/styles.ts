@@ -9,6 +9,9 @@ export const HeaderComponent = styled.header`
     a {
         text-decoration: none;
     }
+
+    box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
 `
 
 export const Input = styled(TextField)`

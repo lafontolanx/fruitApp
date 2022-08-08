@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material'
 import { AppProvider } from './context/app'
-import { Home } from './pages/home'
+import { AppRoutes } from './routes/index.routes'
 import { GlobalStyle } from './styles/GlobalStyle'
 import { theme } from './styles/theme'
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <AppProvider>
       <ThemeProvider theme={theme}>
-        <Home />
+        <AppRoutes />
         <GlobalStyle />
       </ThemeProvider>
     </AppProvider>

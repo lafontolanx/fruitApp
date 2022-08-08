@@ -18,7 +18,7 @@ export const FruitCard = ({ title, id }: FruitCardProps) => {
     return (
         <Container>
             <img 
-                src={`https://storage.googleapis.com/devfruit/fruit/${title.toLowerCase()}.jpg`}
+                src={`https://storage.googleapis.com/devfruit/${title.toLowerCase()}.png`}
                 alt={title}
                 title={title}
             />

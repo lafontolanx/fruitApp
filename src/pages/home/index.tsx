@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { Banner } from '../../components/Banner'
+import { Footer } from '../../components/Footer'
 import { FruitCard } from '../../components/FruitCard'
 import { Header } from '../../components/Header'
 import { AppContext } from '../../context/app'
@@ -35,6 +36,8 @@ export const Home = () => {
                 
                 }
             </CardArea>
+
+            <Footer />
             
         </Container>
     )

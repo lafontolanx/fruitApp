@@ -1,28 +1,42 @@
-import { Stack } from "@mui/material"
+import { Stack, Typography } from '@mui/material'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import Logotipo from '../../assets/icons/logotipo.svg'
+import { AppContext } from '../../context/app'
 import { 
-    HeaderComponent, 
-    Logo, 
-    Input, 
-    Button, 
+    HeaderComponent,  
+    Input,  
     Icon, 
-    SearchIcon 
+    SearchIcon, 
+    CartArea
 } from "./styles"
 
-export const Header = () => {
+interface HeaderProps {
+    setSearch: (value: string) => void
+}
+
+export const Header = ({ setSearch }: HeaderProps) => {
+    const { cart } = useContext(AppContext)
+
     return (
         <HeaderComponent>
-            <Stack direction={'row'} spacing={3} justifyContent={'space-between'}>
-                <Logo>Logo</Logo>
+            <Stack direction={'row'} spacing={3} justifyContent={'space-between'} alignItems={'center'}>
+                <Link to='/'><img src={Logotipo} alt="logo" /></Link>
 
                 <Input 
-                    placeholder="Pesquisar fruta"
+                    placeholder="Search fruit"
                     InputProps={{ endAdornment: <SearchIcon />}}
                     size='small'
+                    color='success'
+                    onChange={(e) => setSearch(e.target.value)}
                 />
 
-                <Button>
-                    <Icon />
-                </Button>
+                <Link to='/cart'>
+                    <CartArea>
+                        <Icon />
+                        <Typography className='cart-length'>{cart.length}</Typography>
+                    </CartArea>
+                </Link>
             </Stack>
         </HeaderComponent>
     )

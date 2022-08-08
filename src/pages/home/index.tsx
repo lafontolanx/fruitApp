@@ -1,11 +1,18 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { Banner } from '../../components/Banner'
 import { FruitCard } from '../../components/FruitCard'
 import { Header } from '../../components/Header'
 import { AppContext } from '../../context/app'
 import { CardArea, Container } from './styles'
 
 export const Home = () => {
-    const { getAllFruits, list} = useContext(AppContext)
+    const { getAllFruits, fruits} = useContext(AppContext)
+    const [search, setSearch] = useState('')
+
+    const filteredFruits = 
+        search.length > 0
+        ? fruits.filter(fruit => fruit.name.toLowerCase().includes(search.toLowerCase()))
+        : []
 
     useEffect(() => {
         getAllFruits()
@@ -13,12 +20,20 @@ export const Home = () => {
 
     return (
         <Container>
-            <Header />
+            <Header setSearch={setSearch}/>
+
+            <Banner />
 
             <CardArea>
-                {list.map(item => (
-                    <FruitCard key={item.id} title={item.name} />
-                ))}
+                {search.length > 0
+                    ? filteredFruits.map(item => (
+                        <FruitCard key={item.id} id={item.id} title={item.name} />
+                    ))
+                    : fruits.map(item => (
+                        <FruitCard key={item.id} id={item.id} title={item.name} />
+                    ))
+                
+                }
             </CardArea>
             
         </Container>

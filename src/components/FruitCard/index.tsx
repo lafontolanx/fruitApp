@@ -9,11 +9,16 @@ interface FruitCardProps {
 }
 
 export const FruitCard = ({ title, id }: FruitCardProps) => {
-    const { addToCart } = useContext(AppContext)
+    const { addToCart, getModalInfo, toggleModal } = useContext(AppContext)
 
     const handleAddToCart = () => {
         addToCart(id, title)
     }
+
+    const handleOpenModal = () => {
+        getModalInfo(id)
+        toggleModal()
+      }
 
     return (
         <Container>
@@ -23,6 +28,14 @@ export const FruitCard = ({ title, id }: FruitCardProps) => {
                 title={title}
             />
             <Title>{title}</Title>
+
+            <Button 
+                onClick={handleOpenModal}
+                color='error'
+                variant='contained'
+            >
+                <Typography color={'#fff'} fontSize={14}>More info</Typography>
+            </Button>
 
             <Button 
                 color='success' 

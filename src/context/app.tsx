@@ -10,11 +10,22 @@ interface AppContextProps {
     clearCart: () => void
     incrementQuantity: (id: number) => void
     decrementQuantity: (id: number) => void
+    toggleModal: () => void
+    modal: boolean
+    modalInfo: FruitsProps
+    getModalInfo: (id: number) => void
 }
 
 interface FruitsProps {
     name: string
     id: number
+    nutritions: {
+      carbohydrates: number
+      protein: number
+      fat: number
+      calories: number
+      sugar: number
+    }
 }
 
 interface CartProps {
@@ -32,6 +43,19 @@ export const AppContext = createContext({} as AppContextProps)
 export const AppProvider = ({children}: ReactElement) => {
     const [fruits, setFruits] = useState<FruitsProps[]>([])
     const [cart, setCart] = useState<CartProps[]>([])
+    const [modal, setModal] = useState(false)
+    const [modalInfo, setModalInfo] = useState<FruitsProps>({} as FruitsProps)
+
+    const toggleModal = () => {
+      setModal(!modal)
+    }
+
+    const getModalInfo = (id: number) => {
+      const fruit = fruits.find(fruit => fruit.id === id) || ({} as FruitsProps)
+      console.log(fruit)
+
+      setModalInfo(fruit)
+    }
 
     const getAllFruits = async () => {
         try{
@@ -131,6 +155,10 @@ export const AppProvider = ({children}: ReactElement) => {
                 decrementQuantity,
                 removeFromCart,
                 clearCart,
+                toggleModal,
+                modal,
+                modalInfo,
+                getModalInfo,
             }}
         >
             {children}

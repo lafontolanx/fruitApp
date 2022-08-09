@@ -11,13 +11,13 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     margin: 2rem 20vw;
-    height: 8rem;
+    height: 15vh;
     background: var(--white);
 
     img {
-        height: 15vh;
+        height: 13vh;
     }
 
     border-radius: 15px;

@@ -21,7 +21,7 @@ export const Header = ({ setSearch }: HeaderProps) => {
     return (
         <HeaderComponent>
             <Stack direction={'row'} spacing={3} justifyContent={'space-between'} alignItems={'center'}>
-                <Link to='/'><img src={Logotipo} alt="logo" /></Link>
+                <Link to='/'><img src={Logotipo} alt="devFruit logo" /></Link>
 
                 <Input 
                     placeholder="Search fruit"
